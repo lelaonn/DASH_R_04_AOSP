@@ -64,13 +64,14 @@ static bool sched_boost_active;
 
 static struct delayed_work input_boost_rem;
 static u64 last_input_time;
-#define MIN_INPUT_INTERVAL (150 * USEC_PER_MSEC)
 
 static struct kthread_worker cpu_boost_worker;
 static struct task_struct *cpu_boost_worker_thread;
 
 static struct kthread_worker powerkey_cpu_boost_worker;
 static struct task_struct *powerkey_cpu_boost_worker_thread;
+
+#define MIN_INPUT_INTERVAL (100 * USEC_PER_MSEC)
 
 static int set_input_boost_freq(const char *buf, const struct kernel_param *kp)
 {
